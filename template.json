@@ -1,0 +1,44 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "resourceGroupName": {
+            "type": "string",
+            "defaultValue": "Terraform_RG_V3",
+            "metadata": {
+                "description": "Name of the resource group"
+            }
+        },
+        "resourceGroupLocation": {
+            "type": "string",
+            "defaultValue": "East US",
+            "metadata": {
+                "description": "Location of the resource group"
+            }
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2020-06-01",
+            "location": "[parameters('resourceGroupLocation')]",
+            "name": "[parameters('resourceGroupName')]",
+            "properties": {},
+            "tags": {
+                "Client": "EleviaMedia LLC",
+                "CreatedBy": "Terraform",
+                "Version": "1.0"
+            }
+        }
+    ],
+    "outputs": {
+        "resourceGroupName": {
+            "type": "string",
+            "value": "[parameters('resourceGroupName')]"
+        },
+        "resourceGroupLocation": {
+            "type": "string",
+            "value": "[parameters('resourceGroupLocation')]"
+        }
+    }
+}
